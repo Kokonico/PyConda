@@ -11,8 +11,11 @@ while True:
 
     try:
         if ".pc" not in text:
-            result = eval(text)
-            print(result)
+            try:
+                result = eval(text)
+                print(result)
+            except NameError:
+                print(f"invalid command: {text}")
 
         else:
             result, error = PyConda.run('<stdin>', text)
